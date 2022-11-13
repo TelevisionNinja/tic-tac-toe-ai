@@ -204,7 +204,6 @@ def alphabetapruning(board, depth, player, alpha, beta):
                     return bestScore
 
     bestScore[3] = count
-
     return bestScore
 
 
@@ -233,4 +232,5 @@ def main():
         else:
             break
 
-main()
+if __name__ == "__main__":
+    main()

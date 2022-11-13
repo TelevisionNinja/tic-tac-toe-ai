@@ -187,7 +187,7 @@ def alphabetapruning(board, depth, player, alpha, beta):
                 if player == COMPUTER:
                     if score[2] > bestScore[2]:
                         bestScore = score
-                    
+
                     if alpha < bestScore[2]:
                         alpha = bestScore[2]
                 else:
@@ -228,4 +228,5 @@ def main():
         else:
             break
 
-main()
+if __name__ == "__main__":
+    main()
