@@ -169,8 +169,6 @@ def alphabetapruning(board, depth, player, alpha, beta):
         bestScore = [-1, -1, -inf, 0]
     else: # when is is human player, it is minimizer
         bestScore = [-1, -1, inf, 0]
-    
-    count = 0
 
     for y in range(GRIDSIDELEN):
         for x in range(GRIDSIDELEN):
@@ -179,7 +177,8 @@ def alphabetapruning(board, depth, player, alpha, beta):
                 score = alphabetapruning(board, depth - 1, -player, alpha, beta)
                 board[y][x] = 0
 
-                count += score[3]
+                # sum the counts
+                bestScore[3] += score[3]
 
                 # set the cell location
                 score[0] = x
@@ -188,22 +187,27 @@ def alphabetapruning(board, depth, player, alpha, beta):
                 # compare the score
                 if player == COMPUTER:
                     if score[2] > bestScore[2]:
+                        # preserve the current count
+                        score[3] = bestScore[3]
                         bestScore = score
-                    
+
+                    if bestScore[2] >= beta:
+                        return bestScore
+
                     if alpha < bestScore[2]:
                         alpha = bestScore[2]
                 else:
                     if score[2] < bestScore[2]:
+                        # preserve the current count
+                        score[3] = bestScore[3]
                         bestScore = score
+
+                    if bestScore[2] <= alpha:
+                        return bestScore
 
                     if beta > bestScore[2]:
                         beta = bestScore[2]
 
-                if beta <= alpha:
-                    bestScore[3] = count
-                    return bestScore
-
-    bestScore[3] = count
     return bestScore
 
 

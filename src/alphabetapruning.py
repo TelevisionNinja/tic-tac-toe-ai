@@ -188,17 +188,20 @@ def alphabetapruning(board, depth, player, alpha, beta):
                     if score[2] > bestScore[2]:
                         bestScore = score
 
+                    if bestScore[2] >= beta:
+                        return bestScore
+
                     if alpha < bestScore[2]:
                         alpha = bestScore[2]
                 else:
                     if score[2] < bestScore[2]:
                         bestScore = score
 
+                    if bestScore[2] <= alpha:
+                        return bestScore
+
                     if beta > bestScore[2]:
                         beta = bestScore[2]
-
-                if beta <= alpha:
-                    return bestScore
 
     return bestScore
 
