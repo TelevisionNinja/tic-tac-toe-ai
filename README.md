@@ -1,9 +1,13 @@
 # tic-tac-toe-ai
-This was a school project where I had to implement algorithms for a tic-tac-toe AI. I have added "count" versions of the algorithms that will show the number of possibilities that the AI considered.</br>
+This was a university AI project where I had to implement algorithms for a tic-tac-toe AI. I have added "count" versions of the algorithms that will show the number of possibilities that the AI considered.</br>
 
 Algorithms:</br>
 - minimax
 - alpha beta pruning
+
+</br>
+
+![grid](./images/grid.png) ![final](./images/final.png)
 
 </br>
 You are "X".</br>
